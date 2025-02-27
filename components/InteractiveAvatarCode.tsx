@@ -1,6 +1,6 @@
-import { Card, CardBody } from "@nextui-org/react";
-import { langs } from "@uiw/codemirror-extensions-langs";
-import ReactCodeMirror from "@uiw/react-codemirror";
+import { Card, CardBody } from '@nextui-org/react';
+import { langs } from '@uiw/codemirror-extensions-langs';
+import ReactCodeMirror from '@uiw/react-codemirror';
 
 export default function InteractiveAvatarCode() {
   return (
@@ -9,20 +9,19 @@ export default function InteractiveAvatarCode() {
       <ul>
         <li>
           <div className="flex flex-row gap-2">
-            <p className="text-indigo-400 font-semibold">Start:</p> Start the
-            Interactive Avatar session
+            <p className="text-indigo-400 font-semibold">Start:</p> Start the Interactive Avatar
+            session
           </div>
         </li>
         <li>
           <div className="flex flex-row gap-2">
-            <p className="text-indigo-400 font-semibold">Close:</p> Close the
-            Interactive Avatar session
+            <p className="text-indigo-400 font-semibold">Close:</p> Close the Interactive Avatar
+            session
           </div>
         </li>
         <li>
           <div className="flex flex-row gap-2">
-            <p className="text-indigo-400 font-semibold">Speak:</p> Repeat the
-            input
+            <p className="text-indigo-400 font-semibold">Speak:</p> Repeat the input
           </div>
         </li>
       </ul>

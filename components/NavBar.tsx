@@ -1,14 +1,8 @@
-"use client";
+'use client';
 
-import {
-  Link,
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-} from "@nextui-org/react";
-import { GithubIcon, HeyGenLogo } from "./Icons";
-import { ThemeSwitch } from "./ThemeSwitch";
+import { Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@nextui-org/react';
+import { GithubIcon, HeyGenLogo } from './Icons';
+import { ThemeSwitch } from './ThemeSwitch';
 
 export default function NavBar() {
   return (
@@ -25,11 +19,7 @@ export default function NavBar() {
       </NavbarBrand>
       <NavbarContent justify="center">
         <NavbarItem className="flex flex-row items-center gap-4">
-          <Link
-            isExternal
-            color="foreground"
-            href="https://labs.heygen.com/interactive-avatar"
-          >
+          <Link isExternal color="foreground" href="https://labs.heygen.com/interactive-avatar">
             Avatars
           </Link>
           <Link

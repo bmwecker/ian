@@ -17,6 +17,7 @@ export const AvatarComponent = () => {
   const [isListening, setIsListening] = useState(false);
   const avatarRef = useRef<any>(null);
   const recognitionRef = useRef<any>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -34,14 +35,14 @@ export const AvatarComponent = () => {
               const response = await fetch('/api/heygen', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text })
+                body: JSON.stringify({ text }),
               });
-              
+
               const data = await response.json();
               if (data.success) {
                 await avatarRef.current.speak({
                   text: data.response,
-                  taskType: 'repeat'
+                  taskType: 'repeat',
                 });
               }
             } catch (error) {
@@ -55,17 +56,17 @@ export const AvatarComponent = () => {
 
   const startSession = async () => {
     try {
-      avatarRef.current = new StreamingAvatar({ 
-        token: config.HEYGEN_API_KEY 
+      avatarRef.current = new StreamingAvatar({
+        token: config.HEYGEN_API_KEY,
       });
 
-      const sessionData = await avatarRef.current.createStartAvatar({
+      await avatarRef.current.createStartAvatar({
         quality: 'high',
         avatarName: config.AVATAR_CONFIG.avatarId,
         voice: {
           voiceId: config.AVATAR_CONFIG.voiceId,
         },
-        language: config.AVATAR_CONFIG.language
+        language: config.AVATAR_CONFIG.language,
       });
 
       setIsSessionActive(true);
@@ -100,8 +101,14 @@ export const AvatarComponent = () => {
 
   return (
     <div className="flex flex-col items-center gap-4">
-      <video id="avatarVideo" autoPlay playsInline className="w-full max-w-lg rounded-lg shadow-lg" />
-      
+      <video
+        ref={videoRef}
+        id="avatarVideo"
+        autoPlay
+        playsInline
+        className="w-full max-w-lg rounded-lg shadow-lg"
+      />
+
       <button
         onClick={isSessionActive ? endSession : startSession}
         className={`px-6 py-2 rounded-full text-white font-medium ${
@@ -111,11 +118,7 @@ export const AvatarComponent = () => {
         {isSessionActive ? 'Завершить диалог' : 'Начать диалог'}
       </button>
 
-      {isListening && (
-        <div className="text-sm text-gray-600">
-          Слушаю...
-        </div>
-      )}
+      {isListening && <div className="text-sm text-gray-600">Слушаю...</div>}
     </div>
   );
 };

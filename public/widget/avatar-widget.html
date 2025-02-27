@@ -1,55 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        .avatar-container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        #avatarVideo {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .control-button {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 25px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .start-button {
-            background-color: #4CAF50;
-            color: white;
-        }
-        .stop-button {
-            background-color: #f44336;
-            color: white;
-        }
-        .status-text {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 14px;
-            color: #666;
-        }
+      .avatar-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      #avatarVideo {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      .control-button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .start-button {
+        background-color: #4caf50;
+        color: white;
+      }
+      .stop-button {
+        background-color: #f44336;
+        color: white;
+      }
+      .status-text {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="avatar-container">
-        <video id="avatarVideo" autoplay playsinline></video>
-        <button id="controlButton" class="control-button start-button">Начать диалог</button>
-        <div id="statusText" class="status-text"></div>
+      <video id="avatarVideo" autoplay playsinline></video>
+      <button id="controlButton" class="control-button start-button">Начать диалог</button>
+      <div id="statusText" class="status-text"></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@heygen/streaming-avatar/dist/index.min.js"></script>
     <script>
-        // Код виджета будет добавлен в следующем шаге
+      // Код виджета будет добавлен в следующем шаге
     </script>
-</body>
+  </body>
 </html>
