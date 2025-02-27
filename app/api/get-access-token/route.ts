@@ -1,30 +1,26 @@
-const HEYGEN_API_KEY = process.env.HEYGEN_API_KEY;
+import { NextResponse } from 'next/server';
+import { config } from '@/app/config/config';
+import axios from 'axios';
 
-export async function POST() {
+export async function POST(req: Request) {
   try {
-    if (!HEYGEN_API_KEY) {
-      throw new Error("API key is missing from .env");
-    }
+    const { text } = await req.json();
+    
+    // Отправляем запрос в n8n
+    const n8nResponse = await axios.post(config.N8N_WEBHOOK_URL, { 
+      text,
+      sessionId: Date.now().toString() 
+    });
 
-    const res = await fetch(
-      "https://api.heygen.com/v1/streaming.create_token",
-      {
-        method: "POST",
-        headers: {
-          "x-api-key": HEYGEN_API_KEY,
-        },
-      },
-    );
-    const data = await res.json();
-
-    return new Response(data.data.token, {
-      status: 200,
+    return NextResponse.json({ 
+      success: true, 
+      response: n8nResponse.data 
     });
   } catch (error) {
-    console.error("Error retrieving access token:", error);
-
-    return new Response("Failed to retrieve access token", {
-      status: 500,
-    });
+    console.error('Error:', error);
+    return NextResponse.json({ 
+      success: false, 
+      error: 'Internal Server Error' 
+    }, { status: 500 });
   }
 }
