@@ -11,3 +11,5 @@ services:
         value: https://shlomonm.app.n8n.cloud/webhook-test/2afff6a8-4194-4a79-bcb0-73c9dd4dc18b
       - key: NODE_VERSION
         value: 18.17.0
+      - key: NPM_VERSION
+        value: 9.6.7
